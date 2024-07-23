@@ -1,3 +1,5 @@
+const dotenv = require('dotenv');
+dotenv.config({ path: './gitignore/config.env' });
 const express = require('express');
 const app = express();
 cors = require('cors');
