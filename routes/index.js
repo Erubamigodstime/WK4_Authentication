@@ -1,10 +1,10 @@
-const routes = require('express').Router();
-const routers = require('../controllers/controller');
+const express = require('express');
+const routes = express.Router();
+const user = require('./user');
+const swagger = require('./swagger');
 
-
-routes.get('/', routers.homePage);
-routes.get('/getAll', routers.getAll);
-routes.get('/:id', routers.getOne);
+routes.use('/', swagger);
+routes.use('/user', user);
 
 
 
