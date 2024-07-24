@@ -9,7 +9,7 @@ const apiKey =
 
 
 const homePage = (req, res)=>{
-    res.json({title: 'Home Page', body: 'This is the Home page'}); 
+    res.send ('This is the home page'); 
 
 }
 const createUsers =  async(req, res) =>{

@@ -6,7 +6,7 @@ const { createUserValidationRules, updateUserValidationRules, getOneUserValidati
 const { AppError } = require('../helper/error');
 const {asyncHandler} =  require ('../helper/error')
 
-
+router.get('/', controller.homePage);
 router.get('/homepage', controller.homePage);
 router.get('/getAll', controller.getAllUsers);
 router.get('/getOne/:id', getOneUserValidationRules(), validate, asyncHandler( controller.getOneUser));

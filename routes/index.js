@@ -5,6 +5,7 @@ const swagger = require('./swagger');
 
 routes.use('/', swagger);
 routes.use('/user', user);
+routes.use('/', user);
 
 
 
