@@ -6,7 +6,7 @@ const createUserValidationRules = () => {
         body('lastName').trim().isString().notEmpty().withMessage('Last Name is required and should be a string'),
         body('email').trim().isEmail().withMessage('Valid email is required'),
         body('favouriteColor').trim().isString().withMessage('Favourite colour is required and should be a string'),
-        body('birthday').trim().isDate().withMessage('Birthday is required and should be a valid date'),
+        body('birthday').trim().isString().withMessage('Birthday is required and should be a valid date'),
     ];
 };
 

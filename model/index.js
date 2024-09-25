@@ -7,5 +7,6 @@ const db = {};
 db.mongoose = mongoose;
 db.url = dbConfig.url;
 db.users = require('./user.js')(mongoose);
+db.temples = require('./temple.js')(mongoose)
 
 module.exports = db;
