@@ -1,5 +1,5 @@
 {
-    "watch": ["server.js", "routes", "model", "controllers"],
+    "watch": ["server.js", "routes", "model", "controllers", "config"],
     "ignore": ["node_modules", "public", "logs", "*.log", "swagger-output.json"],
     "ext": "js,json",
     "exec": "node server.js"
