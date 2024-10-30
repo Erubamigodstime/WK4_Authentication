@@ -1,3 +1,5 @@
+const express = require('express');
+const passport = require('passport');
 const mongoose = require('mongoose');
 const db = require('../model/index');
 const Temple = db.temples;
@@ -346,10 +348,12 @@ const deleteTemple = async (req, res) => {
 
 
 
+
 module.exports = {
     getOneTemple,    
     getAllTemples,    
     updateTemple,
     deleteTemple,
-    createTemples
+    createTemples,
+    // googleLogout
 };

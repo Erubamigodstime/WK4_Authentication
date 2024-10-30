@@ -4,7 +4,7 @@ const swaggerOptions = {
   swaggerDefinition: {
     openapi: '3.0.0',
     info: {
-      title: 'week 3  API',
+      title: 'week 4 Authentication  API',
       description: ' API for user contact Information and Temple Information',
       version: '1.0.0',
       contact: {
@@ -13,13 +13,15 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: 'http://localhost:5000',
+        url: 'http://localhost:9001',
       },
     ],
   },
-  apis: ['./controllers/userController.js', './controllers/templeController.js'], 
+  apis: ['./controllers/userController.js', './controllers/templeController.js', './controllers/authController.js'], 
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 
 module.exports = swaggerDocs;
+
+

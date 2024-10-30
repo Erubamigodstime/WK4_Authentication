@@ -8,12 +8,13 @@ const apiKey =
   'Ezl0961tEpx333UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N';
 
 
-const homePage = (req, res)=>{
-    res.send ('This is the home page'); 
-
-}
 
 
+
+const getHomePage = (req, res) => {
+    // res.render('home'); 
+    res.send('It is working')
+};
 
 
 
@@ -415,9 +416,9 @@ const deleteAllUsers = (req, res) => {
 module.exports = {
     getOneUser,    
     getAllUsers,
-    homePage,
     updateUsers,
     deleteUser,
     createUsers,
-    deleteAllUsers
+    deleteAllUsers,
+    getHomePage
 }
