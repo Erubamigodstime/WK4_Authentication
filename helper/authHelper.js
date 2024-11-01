@@ -9,13 +9,16 @@ const authCheck =(req, res, next)=>{
     }
 }
 
-const ensureAuth = (req, res, next)=>{
-    if(req.isAuthenticated()){
-        next()
-    }else{
-        res.send('You can not acces this endpoint')
+const ensureAuth = (req, res, next) => {
+    console.log('Authenticated:', req.isAuthenticated());
+    console.log('User:', req.user);
+
+    if (req.isAuthenticated()) {
+        next();
+    } else {
+        res.send('You cannot access this endpoint');
     }
-}
+};
 
 // const ensureAuth = (req, res, next) => {
 //   if (req.isAuthenticated()) {
