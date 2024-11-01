@@ -13,7 +13,7 @@ const ensureAuth = (req, res, next)=>{
     if(req.isAuthenticated()){
         next()
     }else{
-        res.send('You can not acces thiis endpoint')
+        res.send('You can not acces this endpoint')
     }
 }
 

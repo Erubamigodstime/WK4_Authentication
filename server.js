@@ -30,12 +30,6 @@ app.use(express.urlencoded({ extended: true }));
 
 
 
-
-
-
-
-
-
 process.on('uncaughtException', (err) => {
     if (logger) {
         logger.error('Uncaught Exception!', err);
