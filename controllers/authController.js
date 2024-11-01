@@ -9,16 +9,22 @@ const passport = require('passport');
 
 const googleLogin = passport.authenticate('google', { scope: ['profile', 'email'] });
 
-// const callBack = (req, res, next) => {
-//   passport.authenticate('google', {successRedirect: '/api-docs',  
-//     failureRedirect: '/'             
-//   })(req, res, next)
-// };
-const callBack = passport.authenticate('google', {
-    failureRedirect: '/'
-}, (req, res) => {
-    res.redirect('/api-docs'); 
-});
+const callBack = (req, res, next) => {
+    passport.authenticate('google', (err, user, info) => {
+        if (err) {
+            return next(err);  
+        }
+        if (!user) {
+            return res.redirect('/'); 
+        }
+        req.logIn(user, (err) => {
+            if (err) {
+                return next(err);  
+            }
+            return res.redirect('/api-docs');  
+        });
+    })(req, res, next);  
+};
 
 /**
  * @swagger
