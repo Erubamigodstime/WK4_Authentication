@@ -1,11 +1,11 @@
 const db = require('../model/index');
 const mongoose = require('mongoose');
-
+const dotenv = require('dotenv');
+dotenv.config()
 const User = db.users;
 
 
-const apiKey =
-  'Ezl0961tEpx333UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N';
+
 
 
 
@@ -149,7 +149,7 @@ const createUsers =  async(req, res) =>{
 const getOneUser = async (req, res)=>{
     const user_id = req.params.id;
     const receivedApiKey = req.header('apiKey')
-  if (receivedApiKey === apiKey) {
+  if (receivedApiKey === process.env.apiKey) {
     if (!mongoose.Types.ObjectId.isValid(user_id)) {
         return res.status(400).send({ message: 'Invalid ID format' });
       }
@@ -221,7 +221,7 @@ const getOneUser = async (req, res)=>{
 const getAllUsers = async (req, res)=>{
   const receivedApiKey = req.header('apiKey');
 
-  if (receivedApiKey === apiKey) {
+  if (receivedApiKey === process.env.apiKey) {
     User.find(
       {},
       {

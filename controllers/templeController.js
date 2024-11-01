@@ -1,10 +1,11 @@
 const express = require('express');
+const dotenv = require('dotenv');
+dotenv.config()
 const passport = require('passport');
 const mongoose = require('mongoose');
 const db = require('../model/index');
 const Temple = db.temples;
 
-const apiKey = 'Ezl0961tEpx333UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N';
 
 
 
@@ -146,7 +147,7 @@ const createTemples = async (req, res) => {
  */
 const getOneTemple = async (req, res) => {
     const id = req.params.id;
-    if (req.header('apiKey') === apiKey) {
+    if (req.header('apiKey') === process.env.apiKey) {
         if (!mongoose.Types.ObjectId.isValid(id)) {
             return res.status(400).send({ message: 'Invalid ID format' });
         }
@@ -205,7 +206,7 @@ const getOneTemple = async (req, res) => {
  *         description: Internal Server Error
  */
 const getAllTemples = async (req, res) => {
-    if (req.header('apiKey') === apiKey) {
+    if (req.header('apiKey') === process.env.apiKey) {
         Temple.find({}, {
             _id: 1,
             temple_id: 1,
